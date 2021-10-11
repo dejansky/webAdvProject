@@ -1,0 +1,51 @@
+<div class="columns is-centered">
+    <div class="column is-10 has-text-centered">
+        <h3 class="title">Login</h3>
+        <div class="columns is-centered">
+            <div class="column is-half-desktop is-12-tablet has-text-left">
+                {{#if errors.length}}
+                    {{>errors errors}}
+                {{/if}}
+                <form method="POST">
+                    <div class="columns">
+                        <div class="column is-6">
+                            <div class="field">
+                                <label class="label">Username</label>
+                                <div class="control has-icons-left">
+                                    <input class="input is-success" type="text" placeholder="Enter username"
+                                        name="entered_username" value="{{entered_username}}">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="column is-6">
+                            <div class="field">
+                                <label class="label">Password</label>
+                                <div class="control has-icons-left">
+                                    <input class="input is-success" type="password" placeholder="Enter password"
+                                        name="entered_password" value="{{entered_password}}">
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-unlock"></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                    <input class="button is-primary" type="submit" value="Login" formaction="/login" formmethod="POST">
+                </form>
+
+                <div class="column is-12">
+                    <p class="control has-text-primary subtitle"> Don't have an accout ? <a class="button is-link" href="/register">Register</a> </p> 
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>

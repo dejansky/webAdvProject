@@ -1,0 +1,206 @@
+<div class="columns is-centered">
+    <article class="column is-full">
+        <header class="section" style="text-align: center;">
+            <h1 class="title">Reservations!</h1>
+            <h3 class="subtitle">Manage the reservations down bellow</h3>
+        </header>
+        
+        {{#if success}}
+                <div class="column is-12 has-text-centered">
+                    <h2 class="success-title">Request successfully carried out</h2>
+                </div>
+            {{/if}}
+
+        {{#if reservations.length}}
+        {{#each reservations}}
+        <form method="POST">
+            <div class="tableView">
+                <header>
+                    <p>Reservation ID:{{reservation_id}}</p>
+                    <p>Guest: {{first_name}}{{last_name}}</p>
+                    <input class="input is-primary" type="hidden" name="user_id" value="{{user_id}}" readonly >
+                    <button id="dropdownBtn" href="#">Show more ⮟</button>
+                </header>
+                <table class="custom-table">
+                    <tr>
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    Reservation ID:
+                                </p>
+                                <p>
+                                    {{reservation_id}}
+                                </p>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    Username:
+                                </p>
+                                <p>
+                                    {{username}}
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    First name
+                                </p>
+                                <p>
+                                    {{first_name}}
+                                </p>
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    Last name:
+                                </p>
+                                <p>
+                                    {{last_name}}
+                                </p>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+
+                            <div class="td-header">
+                                <p>
+                                    User phone:
+                                </p>
+                                <p>
+                                    {{phone_number}}
+                                </p>
+                            </div>
+                        </td>
+                        <td>
+
+                            <div class="td-header">
+                                <p>
+                                    User email:
+                                </p>
+                                <p>
+                                    {{email_address}}
+                                </p>
+                            </div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <div class="td-header">
+                                <p>
+                                    Reservation date:
+                                </p>
+                                <p>
+                                    {{reservation_date}}
+                                </p>
+                            </div>
+                            <div>
+
+                                <div class="control" type="date" placeholder="Date for reservation">
+                                    <input class="input is-primary" type="date" name="reservation_date"
+                                        placeholder="Reservation date" value="{{reservation_date}}">
+                                </div>
+                            </div>
+
+                        </td>
+                        {{!-- <td>
+
+                            <div class="td-header">
+                                <p>
+                                    Time:
+                                </p>
+                                <p>
+                                    10:00-21:00
+                                </p>
+                            </div>
+                            <div>
+                                <div class="control" type="time" placeholder="Time for reservation">
+                                    <input class="input is-primary" type="time" placeholder="Reservation time"
+                                        value="{{reservationTime}}">
+                                </div>
+                            </div>
+
+                        </td> --}}
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <div class="td-header">
+                                <p>
+                                    Number of guests
+                                </p>
+                                <p>
+                                    {{number_of_guests}}
+                                </p>
+                            </div>
+                            <div class="select" type="number" style="width: 100%;">
+                                <select class="select" name="number_of_guest" style="width: 100%;">
+                                    <option value="{{number_of_guests}}" class="selected">{{number_of_guests}}
+                                    </option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="4">5</option>
+                                    <option value="4">6</option>
+                                    <option value="4">7</option>
+                                    <option value="4">8</option>
+                                </select>
+                            </div>
+
+                        </td>
+                        <td>
+
+                            <div class="td-header">
+                                <p>
+                                    Table ID:
+                                </p>
+                                <p>
+                                    {{table_id}}
+                                </p>
+                            </div>
+                            <div class="select" type="number" style="width: 100%;">
+                                <select class="select" name="table_id" style="width: 100%;">
+                                    <option value="{{table_id}}" class="selected" hidden>{{table_id}}</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="1">
+                            <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                            <input id="mButtons" class="button is-primary" type="submit" value="UPDATE"
+                                formaction="/panel/panel-reservation-update/{{reservation_id}}" formmethod="POST">
+                            <input id="mButtons" class="button is-primary" type="submit" value="DELETE"
+                                formaction="/panel/panel-reservation-delete/{{reservation_id}}" formmethod="POST">
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+        {{/each}}
+        {{else}}
+            
+                <div class="column is-12 has-text-centered">
+                    <h2 class="title">No Reservations</h2>
+                </div>
+        {{/if}}
+    </article>
+</div>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="scripts.js"></script>
+    <title>SPA</title>
+</head>
+<!-- ALMOST DONE -->
+<body class="container " style="border: 2px solid green;">
+    <section class="section always-show">
+        <div class="columns is-centered is-multiline">
+            <div class="column is-12">
+                <nav class="navbar" role="navigation" aria-label="main navigation">
+
+                    <div id="navbarBasicExample" class="navbar-menu">
+                        <div class="navbar-start">
+                            <a class="navbar-item" href="/home">
+                                Home
+                            </a>
+                            <a class="navbar-item" href="/my-reservations">
+                                My Reservations
+                            </a>
+                            <a class="navbar-item" href="/make-reservation">
+                                Make Reservation
+                            </a>
+                            <a class="navbar-item" href="/profile">
+                                Profile
+                            </a>
+                            <a class="navbar-item" href="/logout">
+                                Logout
+                            </a>
+                            <a class="navbar-item" href="/register">
+                                Register
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="column has-text-centered is-12">
+                <h1 class="title">
+                    Wagyu Nyum
+                </h1>
+                <h2 class="subtitle">
+                    The best restaurant in town
+                </h2>
+            </div>
+        </div>
+    </section>
+    <!-- ALMOST DONE -->
+    <section class="section" id="login-page">
+        <div class="columns is-centered is-desktop is-multiline">
+            <div class="column has-text-centered is-12-desktop is-12-tablet">
+                <h2 class="subtitle">
+                    Welcome!
+                </h2>
+            </div>
+            <form class="columns is-multiline is-12" action="" id="login-form">
+                <div class="column has-text-left is-6-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label">Username</label>
+                        <div class="control">
+                            <input class="input" type="text" id="username" placeholder="Username">
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-left is-6-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <p class="control has-icons-left">
+                            <input class="input" type="password" id="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="column level is-12-desktop is-12-tablet">
+                    <div class="field level-right">
+                        <p class="control">
+                            <input type="submit" class="button is-success" value="Login">
+                        </p>
+                    </div>
+                </div>
+            </form>
+            <div class="column has-text-left is-8-desktop is-12-tablet">
+
+                <div class="field">
+                    <p>
+                        Don't have an account ?
+                    </p>
+                    <p class="control">
+                        <a class="button is-success" href="/register">
+                            Register
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ALMOST DONE -->
+    <section class="section" id="register-page">
+        <div class="columns is-centered is-desktop is-multiline">
+            <div class="column has-text-centered is-12-desktop is-12-tablet">
+                <h2 class="subtitle">
+                    Register
+                </h2>
+            </div>
+            <form  class="columns is-centered is-desktop is-multiline" action="" id="register-form">
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label" >Username</label>
+                        <div class="control">
+                            <input id="username_r" class="input" type="text" placeholder="Username">
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <p class="control has-icons-left">
+                            <input id="password_r" class="input" type="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <p class="control has-icons-left">
+                            <input id="password_confirmation" class="input" type="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label">First name</label>
+                        <div class="control">
+                            <input id="first_name" class="input" type="text" placeholder="First name">
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label">Last name</label>
+                        <div class="control">
+                            <input id="last_name" class="input" type="text" placeholder="Last name">
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label">Phone number</label>
+                        <div class="control">
+                            <input id="phone_number" class="input" type="number" placeholder="078551232">
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <div class="control">
+                            <input id="email_address" class="input" type="text" placeholder="my@email.com">
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                </div>
+                
+                <div class="column level is-8-desktop is-12-tablet">
+                    <div class="field level-right">
+                        <p class="control">
+                            <input class="button is-success" value="Register" type="submit">
+                        </p>
+                    </div>
+                </div>
+            </form>
+
+
+            <div class="column has-text-left is-8-desktop is-12-tablet">
+
+                <div class="field">
+                    <p>
+                        Already have an account ?
+                    </p>
+                    <p class="control">
+                        <a class="button is-success" href="/">
+                            Login
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+<!-- ALMOST DONE -->
+    <section class="section" id="home-page">
+        <div class="columns is-centered is-desktop is-multiline">
+            <div class="column has-text-centered is-12-desktop is-12-tablet">
+                <h2 class="subtitle">
+                    Home
+                </h2>
+            </div>
+            <div class="column has-text-left is-7-desktop is-12-tablet">
+                <div class="field columns is-centered">
+                    <div class="control column is-8-desktop">
+                        <a class="button column is-12" href="/my-reservations"> My Reservations</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column has-text-left is-7-desktop is-12-tablet">
+                <div class="field columns is-centered">
+                    <div class="control column is-8-desktop">
+                        <a class="button column is-12" href="/make-reservation"> Make Reservations</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column has-text-left is-7-desktop is-12-tablet">
+                <div class="field columns is-centered">
+                    <div class="control column is-8-desktop">
+                        <a class="button column is-12" href="/profile"> Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="column has-text-left is-7-desktop is-12-tablet">
+                <div class="field columns is-centered">
+                    <div class="control column is-8-desktop">
+                        <a class="button column is-12" href="/logout"> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ALMOST DONE -->
+    <section class="section" id="my-reservations-page">
+        <div class="column has-text-centered is-12-desktop is-12-tablet">
+            <h2 class="subtitle">
+                My Reservations
+            </h2>
+        </div>
+    </section>
+
+    <!-- NOT DONE -->
+    <section class="section" id="make-reservation-page">
+        <div class="columns is-centered is-desktop is-multiline">
+            <div class="column has-text-centered is-12-desktop is-12-tablet">
+                <h2 class="subtitle">
+                    Make Reservation
+                </h2>
+            </div>
+            <div class="column has-text-centered is-12-desktop is-12-tablet">
+                <div class="columns is-centered is-gapless">
+                    <img src="/media/table-plan.png" alt="img?">
+                </div>
+            </div>
+            <form action="" id="make-reservation-form" class="columns is-centered is-desktop is-multiline">
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="tile is-child is-primary">
+                        <article class="tile is-child notification is-primary">
+                            <p class=" has-text-centered">Select table</p>
+                            <div class="select" type="number" style="width: 100%;">
+                                <select class="select" id="table_id" style="width: 100%;">
+                                    <option value="" selected="selected" disabled hidden>Choose table</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                </select>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="tile is-child is-primary">
+
+                        <article class="tile is-child notification is-primary">
+                            <p class=" has-text-centered">Select date</p>
+                            <div class="control" type="date" placeholder="Date for reservation">
+                                <input class="input is-primary" type="date" id="reservation_date"
+                                    placeholder="Reservation date" value="">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="column has-text-left is-5-desktop is-12-tablet">
+                    <div class="tile is-child is-primary">
+
+                        <article class="tile is-child notification is-primary">
+                            <p class=" has-text-centered">Select time</p>
+                            <div class="control" type="time" placeholder="Date for reservation">
+                                <input class="input is-primary" type="time" id="reservation_time"
+                                    placeholder="Reservation time" value="">
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="column level is-8-desktop is-12-tablet">
+                    <div class="field level-right">
+                        <p class="control">
+                            <input type="submit" class="button is-success" value="Make Reservation">
+                        </p>
+                    </div>
+                </div>
+        </form>
+
+        </div>
+    </section>
+    <section class="section" id="profile-page">
+        <div class="columns is-centered is-desktop is-multiline">
+            <div class="column has-text-centered is-12-desktop is-12-tablet">
+                <h2 class="subtitle">
+                    Profile
+                </h2>
+            </div>
+            <div class="column has-text-left is-5-desktop is-12-tablet">
+                <div class="field">
+                    <label class="label">First name</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="First name">
+                    </div>
+                </div>
+            </div>
+            <div class="column has-text-left is-5-desktop is-12-tablet">
+                <div class="field">
+                    <label class="label">Last name</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Last name">
+                    </div>
+                </div>
+            </div>
+            <div class="column has-text-left is-5-desktop is-12-tablet">
+                <div class="field">
+                    <label class="label">Phone number</label>
+                    <div class="control">
+                        <input class="input" type="number" placeholder="078551232">
+                    </div>
+                </div>
+            </div>
+            <div class="column has-text-left is-5-desktop is-12-tablet">
+                <div class="field">
+                    <label class="label">Email</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="my@email.com">
+                    </div>
+                </div>
+            </div>
+
+            <div class="column level is-8-desktop is-12-tablet">
+                <div class="field level-right">
+                    <p class="control">
+                        <button class="button is-success">
+                            UPDATE
+                        </button>
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="section" id="unauthorized-page">
+        <div class="columns is-centered is-desktop is-multiline">
+            <div class="column has-text-centered is-12-desktop is-12-tablet">
+                <h1>
+                    Unauthorized!
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="not-found-page">
+        <div class="columns is-centered is-desktop is-multiline">
+            <div class="column has-text-centered is-12-desktop is-12-tablet">
+                <h1>
+                    Page not found
+                </h1>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Wagyu Nyum</strong> <br> by Dejan Arsenijevic & Vida Rashidi
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>

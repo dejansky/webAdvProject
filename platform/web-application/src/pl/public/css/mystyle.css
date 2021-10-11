@@ -1,0 +1,174 @@
+#icons a {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 8px;
+    color: #33CC99;
+}
+
+#navButtons {
+    margin-top: 20px;
+}
+
+#title {
+    font-size: 40px;
+}
+
+#loginColumns {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.footer {
+    background-color: darkslategrey;
+}
+
+#about-content {
+    padding-top: 10vh;
+    min-height: 40vh;
+}
+
+#editAbout {
+    margin-left: 150px;
+}
+
+#contactPageFeedbacks {
+    margin: 0 auto;
+}
+
+#mButtons {
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+#onMenu {
+    margin: 5% 0% 3% 0%;
+}
+
+.select {
+    margin-top: 10px;
+}
+
+.tableView {
+    border: 2px solid lightgrey;
+}
+
+.tableView header {
+    background: lightgray;
+    padding: 5px;
+    margin: 0px;
+    font-weight: bold;
+}
+
+.tableView table {
+    width: 100%;
+}
+
+.tableView header>* {
+    position: relative;
+    display: inline-block;
+    padding: 5px;
+}
+
+.tableView td button {
+    display: inline-block;
+    width: 45%;
+}
+
+.tableView td {
+    border-left: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+    width: 33%;
+}
+
+.tableView #dropdownBtn {
+    vertical-align: center;
+    float: right;
+    border: 2px solid white;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+}
+
+.tableView #dropdownBtn:hover {
+    vertical-align: center;
+    float: right;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+}
+
+.tableView #dropdownBtn:active {
+    vertical-align: center;
+    float: right;
+    border: 2px solid black;
+    background-color: lightgray;
+    color: white;
+    border-radius: 10px;
+}
+
+.custom-table{
+    width: 100%;
+}
+
+.custom-table tr {
+
+    border-bottom: 1px solid gray;
+    padding: 10px 5px 10px 5px;
+    width: 100%;
+}
+.custom-table td {
+
+    padding: 10px 5px 10px 5px;
+    width: 50% !important;
+    min-width: 50% !important;
+}
+
+.custom-table td .td-header {
+    display: inline-block;
+}
+
+.custom-table td .td-header p {
+    margin-right: 5px;
+}
+
+.custom-table td .td-header>* {
+    float: left;
+}
+
+#panel-textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+.reserve-table-img-wrapper {
+    width: 100%;
+    height: 80vh;
+}
+
+.reserve-table-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.home-menu tr{
+    margin: 0px  !important;
+    padding: 0px;
+}
+.home-menu tr:nth-child(1n){
+    border-bottom: 1px dashed white;
+    border-top: 1px solid white;
+}
+
+.home-menu tr:nth-child(2n){
+    margin-bottom: 20px  !important;
+    border-bottom: 1px solid white;
+    border-top: none !important;
+}
+
+.success-title{
+    color: green;
+    font-weight: bold;
+    font-size: 2vw;
+}

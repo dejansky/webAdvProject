@@ -1,0 +1,10 @@
+body > section{
+    display: none;
+}
+
+body > .always-show{
+    display: block !important;
+}
+section.current-page {
+    display: block !important;
+}

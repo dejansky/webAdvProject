@@ -1,0 +1,124 @@
+<div class="columns is-centered">
+    <article class="column is-full">
+        <header class="section" style="text-align: center;">
+            <h1 class="title">Users!</h1>
+            <h3 class="subtitle">Manage the accounts down bellow</h3>
+        </header>
+        {{#if errors.length}}
+        {{>errors errors}}
+        {{/if}}
+        {{#if success}}
+            <div class="column is-12 has-text-centered">
+                <h2 class="success-title"> Request successfully carried out</h2>
+            </div>
+        {{/if}}
+        {{#if users.length}}
+        {{#each users}}
+        <form method="POST">
+            <div class="tableView">
+                <header>
+                    <p>Username:{{username}}</p>
+                    <p>Account ID:{{user_id}}</p>
+                    <button id="dropdownBtn" href="#">Show more ⮟</button>
+                </header>
+                <section>
+                    <table class="column is-10">
+                        <tr>
+                            <td>
+                                <label class="label">User ID: {{user_id}} </label>
+                            </td>
+                            <td>
+                                <input class="input is-success" type="text" placeholder="user ID" name="user_id"
+                                    value="{{user_id}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="label">Username: {{username}}</label>
+                            </td>
+                            <td>
+                                <input class="input is-success" type="text" placeholder="Username" name="username"
+                                    value="{{username}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="label">First name: {{first_name}}</label>
+                            </td>
+                            <td>
+                                <input class="input is-success" type="text" placeholder="First name" name="first_name"
+                                    value="{{first_name}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="label">Last name: {{last_name}}</label>
+                            </td>
+                            <td>
+                                <input class="input is-success" type="text" placeholder="Last name" name="last_name"
+                                    value="{{last_name}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="label">Email: {{email_address}}</label>
+                            </td>
+                            <td>
+                                <input class="input is-success" type="text" placeholder="Phone number"
+                                    name="email_address" value="{{email_address}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="label">PhoneNr: {{phone_number}}</label>
+                            </td>
+                            <td>
+                                <input class="input is-success" type="number" placeholder="Phone number"
+                                    name="phone_number" value="{{phone_number}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="label">Admin:</label>
+                            </td>
+                            <td>
+                                <select class="select" name="admin_flag" style="width: 100%;">
+                                <option value="{{admin_flag}}" selected="selected">{{#if admin_flag}} True {{else}} False{{/if}}</option>
+                                <option value="0">False</option>
+                                <option value="1">True</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label class="label">Employee:</label>
+                            </td>
+                            <td >
+                                <select class="select" name="employee_flag" style="width: 100%;">
+                                <option value="{{employee_flag}}" selected="selected" >{{#if employee_flag}} True {{else}} False{{/if}}</option>
+                                <option value="0">False</option>
+                                <option value="1">True</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="1">
+                                <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                                <input id="mButtons" class="button is-primary" type="submit" value="UPDATE"
+                                    formaction="/panel/panel-accounts-update/{{user_id}}" formmethod="POST">
+                                <input id="mButtons" class="button is-primary" type="submit" value="DELETE"
+                                    formaction="/panel/panel-accounts-delete/{{user_id}}" formmethod="POST">
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+            </div>
+        </form>
+        {{/each}}
+        {{else}}
+            <div class="column is-12 has-text-centered">
+                <h2 class="title">No accounts found</h2>
+            </div>
+        {{/if}}
+    </article>
+</div>

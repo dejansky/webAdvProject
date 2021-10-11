@@ -1,0 +1,17 @@
+{{#if this.length}}
+
+<section class="error-container column is-12 has-text-centered">
+
+    <header>
+        <p>Errors: </p>
+    </header>
+    <article>
+        <ul>
+            {{#each this}}
+            <li class="subtitle" style="color: red;">{{this}}</li>
+            {{/each}}
+        </ul>
+    </article>
+</section>
+
+{{/if}}

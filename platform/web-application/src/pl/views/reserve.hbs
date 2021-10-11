@@ -1,0 +1,86 @@
+<div class="has-text-centered" style="margin-bottom: 5vh;">
+    <h3 class="title">Make a reservation</h3>
+</div>
+{{#if success}}
+    <h1 class="title column is-12 has-text-centered" style="color: green;">Reservation made</h1>
+{{/if}}
+{{>errors errors}}
+
+{{min_date.today}}
+
+<form method="POST">
+    <div class="columns is-gapless">
+        <aside class=" column is-4">
+            {{!-- <div class="column">
+                <div class="tile is-child is-primary">
+
+                    <article class="tile is-child notification is-primary">
+                        <p class=" has-text-centered">Select number of people</p>
+                        <div class="control" type="number">
+                            <input class="input is-primary" type="number" placeholder="Number of guests"
+                                value="{{number_of_guests}}"></input>
+                        </div>
+                    </article>
+
+                </div>
+            </div> --}}
+
+            <div class="column">
+                <div class="tile is-child is-primary">
+                    <article class="tile is-child notification is-primary">
+                        <p class=" has-text-centered">Select table</p>
+                        <div class="select" type="number" style="width: 100%;">
+                            <select class="select" name="table_id" style="width: 100%;">
+                                <option value="{{table_id}}" selected="selected" disabled hidden>Choose here</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                </select>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="tile is-child is-primary">
+                    
+                    <article class="tile is-child notification is-primary">
+                        <p class=" has-text-centered">Select date</p>
+                        
+                        <div class="control" type="date"  placeholder="Date for reservation">
+                            <input class="input is-primary" min="{{min_date}}" type="date" name="reservation_date" placeholder="Reservation date"  value="{{reservation_date}}">
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="column">
+                <div class="tile is-child is-primary">
+
+                    <article class="tile is-child notification is-primary">
+                        <p class=" has-text-centered">Select time</p>
+                        <div class="control" type="time" placeholder="Time for reservation">
+                            <input class="input is-primary" name="reservation_time" type="time" min="{{min_time}}" max="{{max_time}}" placeholder="Reservation time"
+                                value="{{reservation_time}}">
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <div class="column">
+                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                <input id="mButtons" class="button is-primary" type="submit" value="MAKE RESERVATION" formaction="/make-reservation " formmethod="POST">
+
+            </div>
+        </aside>
+
+        <div class="column is-8">
+            <div class="columns is-centered is-gapless reserve-table-img-wrapper">
+                <img src="/media/table-plan.png" alt="img?">
+            </div>
+
+        </div>
+
+    </div>
+</form>

@@ -1,0 +1,140 @@
+<div class="columns is-centered">
+    <article class="column is-full">
+        <header class="section" style="text-align: center;">
+            <h1 class="title">Meals!</h1>
+            <h3 class="subtitle">Manage the meals down bellow</h3>
+        </header>
+        <div class="tableView">
+            {{#if errors.length}}
+                {{>errors errors}}
+            {{/if}}
+            {{#if success}}
+                <div class="column is-12 has-text-centered">
+                    <h2 class="success-title">Request successfully carried out</h2>
+                </div>
+            {{/if}}
+
+
+            <form method="POST">
+                <table class="custom-table" style="margin-bottom:10vh;">
+                    <tr>
+                        <h1>CREATE</h1>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    Name:
+                                </p>
+                            </div>
+                            <div>
+                                <input class="input is-success" type="text" placeholder="Add recipe name"
+                                    name="meal_name" value="{{recipe.meal_name}}">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    Price:
+                                </p>
+                            </div>
+                            <div>
+                                <input class="input is-success" type="text" placeholder="Add price in SEK"
+                                    name="meal_price" value="{{recipe.meal_price}}">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="td-header">
+                                <p>
+                                    Description:
+                                </p>
+                            </div>
+                            <div>
+                                <textarea name="meal_description" id="panel-textarea">{{recipe.meal_description}}</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            <input type="submit" value="CREATE" formaction="/panel/create-recipe-meal"
+                                formmethod="POST">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            {{#if recipes.length}}
+            {{#each recipes}}
+            <form action="POST">
+                <header>
+                    <p>Drink ID: {{recipe_id}}</p>
+                    <p>Name: {{recipe_name}}</p>
+                    <button id="dropdownBtn" disabled>Show more ⮟</button>
+                </header>
+
+                <table class="custom-table">
+                    <tr>
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    Name:
+                                </p>
+                                <p>
+                                    {{recipe_name}}
+                                </p>
+                            </div>
+                            <div>
+                                <input class="input is-success" type="text" name="meal_name" value=" {{recipe_name}}">
+                            </div>
+                        </td>
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    Price:
+                                </p>
+                            </div>
+                            <div>
+                                <input class="input is-success" type="text" placeholder="Add price in SEK"
+                                    name="meal_price" value="{{recipe_price}}">
+                            </div>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="td-header">
+                                <p>
+                                    Description:
+                                </p>
+
+                            </div>
+                            <div>
+                                <textarea name="meal_description" id="panel-textarea">{{recipe_description}}</textarea>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                            <input type="submit" value="UPDATE" formaction="/panel/update-recipe-meal/{{recipe_id}}"
+                                formmethod="POST">
+                            <input type="submit" value="DELETE" formaction="/panel/delete-recipe-meal/{{recipe_id}}"
+                                formmethod="POST">
+                        </td>
+
+
+                    </tr>
+                </table>
+            </form>
+            {{/each}}
+            {{else}}
+                
+                <div class="column is-12 has-text-centered">
+                    <h2 class="title">No meals found</h2>
+                </div>
+            {{/if}}
+        </div>
+    </article>
+</div>

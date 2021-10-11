@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>
+        {{#if general_settings.length}}
+        {{#each general_settings}}
+        {{site_title}}
+        {{/each}}
+        {{/if}}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/mystyle.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    </meta>
+</head>
+
+<!-- **********************Navbar*********************** -->
+
+<body>
+    <section class="hero is-primary is-bold content-wrapper">
+
+        <div class="container">
+            <div class="navbar-end">
+                <div class="buttons">
+                    <div id="navButtons">
+                        <a class="button is-primary is-inverted" href="/home">Home</a>
+                        <a class="button is-primary is-inverted" href="/about">About</a>
+                        <a class="button is-primary is-inverted" href="/contact">Contact Us</a>
+                        <a class="button is-primary is-inverted" href="/reserve">Reserve</a>
+                        {{#unless is_logged_in}}
+                        <a class="button is-primary is-inverted" href="/login">Login</a>
+                        {{/unless}}
+                        {{#if is_logged_in}}
+                        <a class="button is-primary is-inverted" href="/mypage">My Page</a>
+                        {{#if is_employee}}
+                        <a class="button is-primary is-inverted" href="/panel/">Panel</a>
+                        {{/if}}
+                        <form method="POST" style="display: inline-block;">
+                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            <input class="button is-primary is-inverted" type="submit" value="Logout" formmethod="POST"
+                                formaction="/logout">
+                        </form>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container center">
+            {{#if general_settings.length}}
+            {{#each general_settings}}
+            <h1 class="title">{{site_title}}</h1>
+            <h2 class="subtitle">{{site_subtitle}}</h2>
+            {{/each}}
+            {{/if}}
+        </div>
+
+        </div>
+    </section>
+    <!-- **********************Body************************************* -->
+
+    <div class="hero-body" style="min-height: 80vh;">
+        <div class="columns is-centered">
+            <div class="column is-10">
+                {{{body}}}
+            </div>
+
+        </div>
+
+    </div>
+    <!-- **********************Footer************************************* -->
+
+    <footer class="footer">
+
+        <div class="columns is-centered ">
+            {{#if general_settings.length}}
+            {{#each general_settings}}
+            <div class="column is-4 has-text-centered">
+                
+                <p style="color: white;">Opening Times: <br> {{opening_times}}</p>
+                <p style="color: white;">Email: {{general_contact_email}}</p>
+                
+            </div>
+            <div class="column is-4 has-text-centered">
+                <p style="color: white;">Contact: {{general_contact_name}}</p>
+                <p style="color: white;">Phone: {{general_contact_phone_nr}}</p>
+            </div>
+            {{/each}}
+            {{/if}}
+            
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-12 has-text-centered">
+                <p style="color: white;">Website - © - by Dejan Arsenijevic & Vida Rashidi 2021</p>
+            </div>
+        </div>
+    </footer>
+
+    </section>
+</body>
+
+</html>

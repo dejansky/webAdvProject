@@ -1,0 +1,115 @@
+<div class="columns is-centered">
+    <article class="column is-full">
+        <header class="section" style="text-align: center;">
+            <h1 class="title">User profile!</h1>
+            <h3 class="subtitle">Manage the general settings down bellow</h3>
+        </header>
+
+        {{#if errors.length}}
+                {{>errors errors}}
+            {{/if}}
+        {{#if success}}
+            <div class="column is-12 has-text-centered">
+                <h2 class="success-title">Request successfully carried out</h2>               
+            </div>
+        {{/if}}
+
+        <div class="columns is-centered is-gapless">
+            {{#if profile.length}}
+                {{#each profile}}
+                    <div class="column is-6">
+                        <table class="custom-table">
+                            <form action="" method="POST">
+                                <tr>
+                                    <td colspan="2">
+                                        <div class="td-header">
+                                            <p>
+                                                Username:
+                                            </p>
+                                            <p>
+                                                {{username}}
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="td-header">
+                                            <p>
+                                                First name:
+                                            </p>
+                                            <p>
+                                                {{first_name}}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <input class="input is-success" name="first_name" type="text"
+                                                placeholder="First name" value="{{first_name}}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="td-header">
+                                            <p>
+                                                Last name:
+                                            </p>
+                                            <p>
+                                                {{last_name}}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <input class="input is-success" type="text" name="last_name" placeholder="Last name"
+                                                value="{{last_name}}">
+                                        </div>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="td-header">
+                                            <p>
+                                                Email
+                                            </p>
+                                            <p>
+                                                {{email_address}}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <input class="input is-success" type="text" name="email_address"
+                                                placeholder="First name" value="{{email_address}}">
+                                        </div>
+                                    </td>
+
+                                    <td>
+                                        <div class="td-header">
+                                            <p>
+                                                PhoneNr:
+                                            </p>
+                                            <p>
+                                                {{phone_number}}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <input class="input is-success" type="text" name="phone_number"
+                                                placeholder="Last name" value="{{phone_number}}">
+                                        </div>
+
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2">
+                                        <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                                        <input type="submit" value="UPDATE" formaction="/update-profile" formmethod="POST">
+                                    </td>
+
+                                </tr>
+                            </form>
+                        </table>
+                    </div>
+
+                {{/each}}
+            {{/if}}
+        </div>
+    </article>
+</div>

@@ -1,0 +1,85 @@
+<div class="hero-body">
+  {{#if general_settings.length}}
+  {{#each general_settings}}
+  <div class="container has-text-centered">
+    <h1 class="title is-size-1 has-text-primary">
+
+      {{site_title}}
+
+    </h1>
+    <h2 class="subtitle">
+      {{site_header}}
+    </h2>
+  </div>
+  {{/each}}
+  {{/if}}
+</div>
+
+<article id="onMenu">
+  <p class="title has-text-centered">Currently on our menu</p>
+</article>
+
+{{#if errors.length}}
+  {{>errors errors}}
+{{/if}}
+
+<div id="menuColumns" class="columns is-centered">
+
+  <div class="column is-two-fifths">
+    <article class="column is-12 notification is-primary">
+      <p class="title has-text-centered">Meals</p>
+      <table class="home-menu" style="width:100%; ">
+        {{#each meals}}
+        <tr class="columns is-gapless is-multiline">
+          <td class="column is-9">
+            <h1>
+              {{recipe_name}}
+            </h1>
+          </td>
+          <td class="column is-3">
+            <h2>
+              {{recipe_price}}:-
+            </h2>
+          </td>
+        </tr>
+        <tr class="columns is-gapless is-multiline">
+          <td class="column is-12">
+            <h3>{{recipe_description}}</h3>
+          </td>
+        </tr>
+
+        {{/each}}
+      </table>
+    </article>
+  </div>
+
+  <div class="column is-two-fifths">
+    <article class="column is-12 notification is-primary">
+      <p class="title has-text-centered">Drinks</p>
+      <table class="home-menu" style="width:100%; ">
+        {{#each drinks}}
+        <tr class="columns is-gapless is-multiline">
+          <td class="column is-9">
+            <h1>
+              {{recipe_name}}
+            </h1>
+          </td>
+          <td class="column is-3">
+            <h2>
+              {{recipe_price}}:-
+            </h2>
+          </td>
+        </tr>
+        <tr class="columns is-gapless is-multiline">
+          <td class="column is-12">
+            <h3>{{recipe_description}}</h3>
+          </td>
+        </tr>
+
+        {{/each}}
+      </table>
+    </article>
+  </div>
+</div>
+
+</div>

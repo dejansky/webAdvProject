@@ -1,0 +1,49 @@
+version: '3'
+services:
+  "web-application":
+    build: "./web-application"
+    ports:
+      - "8080:8080"
+      - "9229:9229"
+    volumes:
+      - "./web-application/src:/web-application/src"
+    depends_on:
+      - redis
+      - database
+      - pgdb
+      - nginx
+  redis:
+    image: redis
+    ports: 
+      - "6379:6379"
+  database:
+    image: mysql:5.7.32
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=root
+      - MYSQL_DATABASE=myDB
+      - MYSQL_HOST=localhost
+    volumes:
+      - ./database/initialize-database.sql:/docker-entrypoint-initdb.d/initialize-database.sql
+  pgdb:
+    build: ./pgdb
+    restart: always
+    environment: 
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mypgDB
+    volumes: 
+      - ./pgdb/init.sql:/docker-entrypoint-initdb.d/init.sql
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    volumes: 
+      - ./nginx/src:/usr/share/nginx/html
+    ports:            
+      - "5000:80"
+
+    

@@ -1,0 +1,91 @@
+<h3 class="title has-text-centered">Contact us</h3>
+<div class="columns is-centered">
+
+  {{#if contacts_obj_array.length}}
+    {{#each contacts_obj_array}}
+  <div class="column">
+
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">Name: {{full_name}}</p>
+      </header>
+      <div class="card-content">
+        <div class="content">
+          <p> Phone: {{phone_nr}} </p>
+          <p> Email: {{email_address}} </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+  {{/if}}
+
+</div>
+
+{{!--
+**********************************************************FEEDBACKS*********************************************************
+--}}
+
+<section id="contactPageFeedbacks">
+  <form action="/add-feedback" method="POST">
+    <h5 class="subtitle" style="text-align: center;">Feel free to contact us by using the form bellow :)</h5>
+
+    {{#if errors.length}}
+      {{>errors errors}}
+    {{/if}}
+    {{#if success}}
+      <div class="column is-12 has-text-centered">
+        <h2 class="success-title">Message sent</h2>
+      </div>
+    {{/if}}
+    <div class="columns">
+      <div class="column is-two-fifths" style="margin:0 auto;">
+
+        <div class="field">
+          <label class="label">Full name</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="full_name" placeholder="Enter full name"
+              value="{{feedback.full_name}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Email</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="email_address" placeholder="Enter a valid emailaddress"
+              value="{{feedback.email_address}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="column is-two-fifths" style="margin:0 auto;">
+
+        <div id="contactField" class="field">
+          <label class="label">Message</label>
+          <div class="control">
+            <textarea class="textarea is-success" name="message" placeholder="Textarea">{{feedback.message}}</textarea>
+          </div>
+        </div>
+
+        <div class="field is-grouped is-grouped-right">
+          <p class="control">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input class="button is-primary" type="submit" value="Submit feedback" formmethod="POST"
+              formaction="/add-feedback">
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+</section>
+
+</form>

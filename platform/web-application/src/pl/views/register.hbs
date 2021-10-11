@@ -1,0 +1,116 @@
+<div class="column is-12 has-text-centered">
+  <h3 class="title">Register</h3>
+</div>
+
+<div class="column is-12">
+  {{!-- {{>errors errors}} --}}
+
+
+  {{#if errors.length}}
+    {{>errors errors}}
+  {{/if}}
+  {{#if success}}
+    <div class="column is-12 has-text-centered">
+      <h2 class="success-title">Registation comlete</h2>
+    </div>
+  {{/if}}
+
+  <form action="/register" method="POST">
+    <div class="columns is-centered">
+      <div class="column is-two-fifths">
+        <div class="field">
+          <label class="label">Username</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="username" placeholder="Username" value="{{username}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="password" name="password" placeholder="Enter a password"
+              value="{{password}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-unlock"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Confirm password</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="password" name="password_confirmation" placeholder="Confirm password"
+              value="{{password_confirmation}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-unlock"></i>
+            </span>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <div class="column is-two-fifths">
+        <div class="field">
+          <label class="label">First Name</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="first_name" placeholder="Enter full name"
+              value="{{first_name}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Last name</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="last_name" placeholder="Enter full name"
+              value="{{last_name}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-user"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Phone number</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="number" name="phone_number" placeholder="Enter phonenumber"
+              value="{{phone_number}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-phone"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="label">Email address</label>
+          <div class="control has-icons-left">
+            <input class="input is-success" type="text" name="email_address" placeholder="Enter emailaddress"
+              value="{{email_address}}">
+            <span class="icon is-small is-left">
+              <i class="fas fa-envelope"></i>
+            </span>
+          </div>
+        </div>
+        <div class="field is-grouped is-grouped-right">
+          <p class="control">
+            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+            <input class="button is-primary" type="submit" value="Register" formmethod="POST" formaction="/register">
+          </p>
+        </div>
+        <div class="field is-grouped is-grouped-right">
+          <p class="control has-text-primary"> Already have an account?
+            <a class="is-light" href="/login">
+              Login
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

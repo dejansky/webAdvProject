@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>
+        {{#if general_settings.length}}
+            {{#each general_settings}}
+                {{site_title}}
+            {{/each}}
+        {{/if}}
+    </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/mystyle.css">
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+    </meta>
+</head>
+
+<!-- **********************Navbar*********************** -->
+
+<body >
+    <section class="is-primary is-bold content-wrapper" style="background-color: rgb(11, 15, 26);">
+        <div class="container">
+            <div class="navbar-end">
+                <div class="buttons">
+                    <div id="navButtons">
+                        <a class="button is-primary is-inverted" href="/home">Home</a>
+                        <a class="button is-primary is-inverted" href="/about">About</a>
+                        <a class="button is-primary is-inverted" href="/contact">Contact Us</a>
+                        <a class="button is-primary is-inverted" href="/reserve">Reserve</a>
+                        {{#unless is_logged_in}}
+                            <a class="button is-primary is-inverted" href="/login">Login</a>
+                        {{/unless}}
+                        {{#if is_logged_in}}
+                            <a class="button is-primary is-inverted" href="/mypage">My Page</a>
+                            {{#if is_employee}}
+                            <a class="button is-primary is-inverted" href="/panel/">Panel</a>
+                            {{/if}}
+                            <form method="POST" style="display: inline-block;">
+                                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                <input class="button is-primary is-inverted" type="submit" value="Logout" formmethod="POST" formaction="/logout">
+                            </form>
+                        {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <h1 class="title" style="color: white !important;">dPanel</h1>
+            <h2 class="subtitle">Admin Panel</h2>
+        </div>
+
+        </div>
+    </section>
+
+    <!-- **********************Body************************************* -->
+
+    <div class="hero-body" style="min-height: 80vh;">
+        <main class="columns is-centered">
+            
+            <section class="columns column is-full">
+                <aside class="column is-2 menu" style="border: 1px solid black;">
+                    <p class="menu-label">
+                        General
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="/panel/panel-main">Dashboard</a></li>
+                    </ul>
+                    <p class="menu-label">
+                        Administration
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="/panel/panel-accounts">Accounts</a></li>
+                        <li><a href="/panel/panel-reservations">Reservations</a></li>
+                        <li><a href="/panel/panel-tables">Tables</a></li>
+                    </ul>
+                    <p class="menu-label">
+                        Menu
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="/panel/panel-recipe-meals">Meals</a></li>
+                        <li><a href="/panel/panel-recipe-drinks">Drinks</a></li>
+                    </ul>
+                     <p class="menu-label">
+                        Messages
+                    </p>
+                    <ul class="menu-list">
+                        <li><a href="/panel/panel-feedback">Feedback</a></li>
+                    </ul>
+                </aside>
+                <section class="column is-10" style="border: 1px solid black; min-height:80vh;">
+                    {{{body}}}
+                </section>
+            </section>
+        </main>
+    </div>
+    <!-- **********************Footer************************************* -->
+
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <div class="container">
+                    <div id="icons">
+                        <ul>
+                            <a href="https://www.facebook.com"><i class="fab fa-facebook-f fa-3x"></i></a>
+                            <a href="https://twitter.com"><i class="fab fa-twitter fa-3x"></i></a>
+                            <a href="https://www.instagram.com" /><i class="fab fa-instagram fa-3x"></i></a>
+                            <ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    </section>
+</body>
+
+</html>

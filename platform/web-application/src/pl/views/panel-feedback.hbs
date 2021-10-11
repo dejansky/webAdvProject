@@ -1,0 +1,81 @@
+<div class="columns is-centered">
+    <article class="column is-full">
+        <header class="section" style="text-align: center;">
+            <h1 class="title">Feedback!</h1>
+            <h3 class="subtitle">Manage the feedback down bellow</h3>
+        </header>
+         {{#if errors.length}}
+                {{>errors errors}}
+            {{/if}}
+        {{#if success}}
+            <div class="column is-12 has-text-centered">
+                <h2 class="success-title">Request successfully carried out</h2>               
+            </div>
+        {{/if}}
+
+        {{#if feedback.length}}
+            {{#each feedback}}
+                <form method="POST">
+                    <div class="tableView">
+                        <header>
+                            <p>
+                                Full name:{{full_name}}
+                            </p>
+                            <button id="dropdownBtn" href="#">Show more ⮟</button>
+                        </header>
+                        <table class="custom-table">
+                            <td>
+                                <div class="td-header">
+                                    <p>
+                                        Full name:
+                                    </p>
+                                    <p>
+                                        {{full_name}}
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="td-header">
+                                    <p>
+                                        Email:
+                                    </p>
+                                    <p>
+                                        {{email}}
+                                    </p>
+                                </div>
+                            </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+
+                                    <div>
+                                        <p>
+                                            Message:
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <p style="background-color:whitesmoke;">
+                                            {{message}}
+                                        </p>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                                    <input type="submit" class="button is-primary" value="DELETE" formaction="/panel/panel-feedback-delete/{{feedback_id}}" formmethod="POST">
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </form>
+            {{/each}}
+        {{else}}
+         
+        <div class="column is-12 has-text-centered">
+            <h2 class="title">No feedback</h2>
+        </div>
+            
+        {{/if}}
+    </article>
+</div>

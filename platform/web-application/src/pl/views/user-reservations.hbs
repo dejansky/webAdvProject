@@ -1,0 +1,166 @@
+<div class="columns is-centered" >
+    <article class="column is-full">
+        <header class="section" style="text-align: center;">
+            <h1 class="title">Reservations!</h1>
+            <h3 class="subtitle">Manage the reservations down bellow</h3>
+        </header>
+        {{#if errors.length}}
+                {{>errors errors}}
+            {{/if}}
+        {{#if success}}
+            <div class="column is-12 has-text-centered">
+                <h2 class="success-title">Request successfully carried out</h2>               
+            </div>
+        {{/if}}
+        {{#if reservations.length}}
+            {{#each reservations}}
+            <form method="POST">
+                <div class="tableView">
+                    <header>
+                        <p>Username:{{username}}</p>
+                        <button id="dropdownBtn" href="#">Show more ⮟</button>
+                    </header>
+                    <table class="custom-table">
+                        <tr>
+                            <td>
+                                <div class="td-header">
+                                    <p>
+                                        ID:
+                                    </p>
+                                    <p>
+                                        {{reservation_id}}
+                                    </p>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="td-header">
+                                    <p>
+                                        User:
+                                    </p>
+                                    <p>
+                                        {{username}}
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="td-header">
+                                    <p>
+                                        First name
+                                    </p>
+                                    <p>
+                                        {{first_name}}
+                                    </p>
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="td-header">
+                                    <p>
+                                        Last name: 
+                                    </p>
+                                    <p>
+                                        {{last_name}}
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        User phone:
+                                    </p>
+                                    <p>
+                                        {{phone_number}}
+                                    </p>
+                                </div>
+
+                            </td>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        User email:
+                                    </p>
+                                    <p>
+                                        {{email_address}}
+                                    </p>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        Reservation date:
+                                    </p>
+                                    <p>
+                                        {{reservation_date}}
+                                    </p>
+                                </div>
+
+                            </td>
+                            {{!-- <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        Time:
+                                    </p>
+                                    <p>
+                                        10:00-21:00
+                                    </p>
+                                </div>
+
+
+                            </td> --}}
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                    Number of guests:
+                                    </p>
+                                    <p>
+                                        4
+                                    </p>
+                                </div>
+                            </td>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        Table ID:
+                                    </p>
+                                    <p>
+                                        {{table_id}}
+                                    </p>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                                <input class="button is-primary" type="submit" value="CANCLE RESERVATRION" formaction="/cancel-reservation/{{reservation_id}}"
+                                formmethod="POST">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+            {{/each}}
+        {{else}}
+            <div class="column is-12 has-text-centered">
+                <h2 class="title">You currently have no reservations</h2>
+            </div>
+        {{/if}}
+    </article>
+</div>

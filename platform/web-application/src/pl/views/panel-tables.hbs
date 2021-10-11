@@ -1,0 +1,102 @@
+<div class="columns is-centered">
+    <article class="column is-full">
+        
+        <header class="section" style="text-align: center;">
+            <h1 class="title">Tables!</h1>
+            <h3 class="subtitle">Manage the tables down bellow</h3>
+        </header>
+
+        {{#if success}}
+            <div class="column is-12 has-text-centered">
+                <h2 class="success-title">Request successfully carried out</h2>
+            </div>
+        {{/if}}
+        
+        {{#if errors.length}}
+            {{>errors errors}}
+        {{/if}}
+
+        <div class="tableView">
+            <form method="POST">
+                <table class="custom-table">
+                    <tr>
+                        <td colspan="2" style="text-align: center;">
+                            <h1>
+                                Create
+                            </h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    ID:
+                                </p>
+                            </div>
+                            <div>
+                                <input class="input is-success" type="number" name="table_id"
+                                    placeholder="Add the table ID form the image" value="{{table.table_id}}">
+                            </div>
+                        </td>
+
+                        <td>
+                            <div class="td-header">
+                                <p>
+                                    Number of seats:
+                                </p>
+                            </div>
+                            <div>
+                                <input class="input is-success" type="number" name="table_seats"
+                                    placeholder="Add the number of seats" value="{{table.table_seats}}">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                            <input type="submit" value="CREATE" formaction="/panel/create-table" formmethod="POST">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+        <br>
+        <div class="tableView">
+            {{#if tables.length}}
+                {{#each tables}}
+                    <form method="POST">
+                        <header>
+                            <p>Table ID: {{table_id}}</p>
+                            <button id="dropdownBtn" href="#">Show more ⮟</button>
+                        </header>
+                        <table class="custom-table">
+                            <tr>
+                                <td>
+                                    <div class="td-header">
+                                        <p>
+                                            Number of seats:
+                                        </p>
+                                        <p>
+                                            {{table_seats}}
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <input class="input is-success" type="text" name="table_seats"
+                                            placeholder="Change the number of seats" value="{{table_seats}}">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                                    <input type="submit" value="UPDATE" formaction="/panel/update-table/{{table_id}}" formmethod="POST">
+                                    <input type="submit" value="DELETE" formaction="/panel/delete-table/{{table_id}}" formmethod="POST">
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                {{/each}}
+            {{/if}}
+        </div>
+    </article>
+</div>

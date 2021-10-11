@@ -1,0 +1,232 @@
+<div class="columns is-centered">
+    <article class="column is-full">
+        <header class="section" style="text-align: center;">
+            <h1 class="title">General Settings!</h1>
+            <h3 class="subtitle">Manage the general settings down bellow</h3>
+        </header>
+        <div class="column is-12" style="border: 1px solid green;">
+            
+            {{#if errors.length}}
+                {{>errors errors}}
+            {{/if}}
+            {{#if success}}
+                <div class="column is-12 has-text-centered">
+                    <h2 class="success-title">Request successfully carried out</h2>
+                </div>
+            {{/if}}
+            
+            {{#if settings_item.length}}
+
+            {{#each settings_item}}
+
+            <form method="POST" class="columns is-centered">
+                
+                <div class="column is-10">
+                    <table class="custom-table">
+                        <tr>
+                            <td>
+                                <div class="td-header">
+                                    <p>
+                                        Title:
+                                    </p>
+                                    <p>
+                                        {{site_title}}
+                                    </p>
+                                </div>
+                                <div>
+                                    <input class="input is-success" type="text" name="site_title"
+                                        value="{{site_title}}">
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="td-header">
+                                    <p>
+                                        Subtitle:
+                                    </p>
+                                    <p>
+                                        {{site_subtitle}}
+                                    </p>
+                                </div>
+                                <div>
+                                    <input class="input is-success" type="text" name="site_subtitle"
+                                        value="{{site_subtitle}}">
+                                </div>
+
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        Contact:
+                                    </p>
+                                    <p>
+                                        {{general_contact_name}}
+                                    </p>
+                                </div>
+                                <div>
+                                    <input class="input is-success" type="text" name="general_contact_name"
+                                        value="{{general_contact_name}}">
+                                </div>
+
+                            </td>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        Email:
+                                    </p>
+                                    <p>
+                                        {{general_contact_email}}
+                                    </p>
+                                </div>
+                                <div>
+                                    <input class="input is-success" type="text" name="general_contact_email"
+                                        value="{{general_contact_email}}">
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        PhoneNr:
+                                    </p>
+                                    <p>
+                                        {{general_contact_phone_nr}}
+                                    </p>
+                                </div>
+                                <div>
+                                    <input class="input is-success" type="number" name="general_contact_phone_nr"
+                                        value="{{general_contact_phone_nr}}">
+                                </div>
+
+                            </td>
+                            <td>
+
+                                <div class="td-header">
+                                    <p>
+                                        Opening times:
+                                    </p>
+                                    <p>
+                                        {{opening_times}}
+                                    </p>
+                                </div>
+                                <div>
+                                    <input class="input is-success" type="text" name="opening_times"
+                                        value="{{opening_times}}">
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+
+                                <div>
+                                    <p>
+                                        About:
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>
+                                        {{site_header}}
+                                    </p>
+                                </div>
+                                <div>
+                                    <textarea name="site_header" id="panel-textarea">{{site_header}}</textarea>
+                                </div>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+
+                                <div>
+                                    <p>
+                                        About:
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>
+                                        {{about_content}}
+                                    </p>
+                                </div>
+                                <div>
+                                    <textarea name="about_content" id="panel-textarea">{{about_content}}</textarea>
+                                </div>
+
+                            </td>
+                        </tr>
+                        {{#if contacts_obj_array.length}}
+                        {{#each contacts_obj_array}}
+                        <tr>
+                            <td colspan="2">
+                                
+                                <input class="input is-success" style="float: left; max-width:33%;" type="text"
+                                    name="full_name" placeholder="Enter the full name" value="{{full_name}}">
+                                <input class="input is-success" style="float: left; max-width:33%;" type="text"
+                                    name="phone_nr" placeholder="Enter phone number" value="{{phone_nr}}">
+                                <input class="input is-success" style="float: left; max-width:33%;" type="text"
+                                    name="email_address" placeholder="Enter the email address"
+                                    value="{{email_address}}">
+                                <br>
+                                <input type="submit" value="DELETE" formaction="/panel/panel-main-delete-contact/{{contact_index}}"
+                                    formmethod="POST">
+                            </td>
+                        </tr>
+                        {{/each}}
+
+                        {{/if}}
+
+                        <tr>
+                            <td colspan="2">
+                                <input type="hidden" name="_csrf" value="{{../csrfToken}}">
+                                <input type="submit" class="button is-primary" value="UPDATE" formaction="/panel/panel-main-update"
+                                    formmethod="POST">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+
+            </form>
+            {{/each}}
+            {{/if}}
+
+            <form method="POST" class="columns is-centered">
+                <div class="column is-10">
+                    <table class=" custom-table">
+                        <tr>
+                            <td>
+                                <h2>
+                                    Add contact to the contacts list
+                                </h2>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="input is-success" style="float: left; max-width:33%;" type="text"
+                                    name="full_name" placeholder="Enter the full name" value="{{contact_obj.full_name}}">
+                                <input class="input is-success" style="float: left; max-width:33%;" type="text"
+                                    name="phone_nr" placeholder="Enter phone number" value="{{contact_obj.phone_nr}}">
+                                <input class="input is-success" style="float: left; max-width:33%;" type="text"
+                                    name="email_address" placeholder="Enter the email address" value="{{contact_obj.email_address}}">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="hidden" name="_csrf" value="{{csrfToken}}">
+                                <input type="submit" class="button is-primary" value="ADD CONTACT" formaction="/panel/panel-main-add-contact"
+                                    formmethod="POST">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </article>
+</div>
